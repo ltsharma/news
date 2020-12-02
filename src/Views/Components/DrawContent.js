@@ -50,15 +50,15 @@ const DrawContent = (props) => {
       })();
     }
   }, [location]);
-
+  console.log(weather);
   return (
     <DrawerContentScrollView {...props}>
       <View style={{ paddingHorizontal: 5 }}>
         <ImageBackground
           source={require("../../../assets/sky.jpg")}
           style={styles.sky}>
-          <Text style={styles.city}>{location?.city}</Text>
-          <Text style={styles.weather}>Scatterd</Text>
+          <Text style={styles.city}>{location?.city || weather?.name}</Text>
+          <Text style={styles.weather}>{weather?.weather[0]?.description}</Text>
           <Text style={styles.temp}>{weather?.main?.temp.toFixed(1)}° C</Text>
           <View style={styles.row}>
             <Text style={styles.tempTxt}>{getFormatedDate(moment())}</Text>
