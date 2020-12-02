@@ -1,8 +1,6 @@
 import React, { useCallback } from "react";
-import { StyleSheet, View, Dimensions, Pressable, Text } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { StyleSheet, View, Dimensions } from "react-native";
 import { TabView, SceneMap } from "react-native-tab-view";
-import { colors } from "../Config/theme";
 import NewsList from "./Components/NewsList";
 import TabBar from "./Components/TabBar";
 
