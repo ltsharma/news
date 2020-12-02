@@ -23,6 +23,7 @@ const AppRoute = () => {
         component={Details}
         sharedElementsConfig={(route, otherRoute, showing) => {
           const item = route.params;
+          console.log(`item.${item.id}.photo`);
           return [`item.${item.id}.photo`];
         }}
       />

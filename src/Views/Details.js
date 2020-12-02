@@ -38,11 +38,6 @@ const Details = () => {
               />
             )}
           </Pressable>
-          <Pressable
-            onPress={onSharePress}
-            style={{ padding: 5, paddingHorizontal: 10 }}>
-            <EvilIcons name="share-apple" size={32} color={colors.primary} />
-          </Pressable>
         </View>
       ),
     });

@@ -55,7 +55,7 @@ const DrawContent = (props) => {
     <DrawerContentScrollView {...props}>
       <View style={{ paddingHorizontal: 5 }}>
         <ImageBackground
-          source={require("../../assets/sky.jpg")}
+          source={require("../../../assets/sky.jpg")}
           style={styles.sky}>
           <Text style={styles.city}>{location?.city}</Text>
           <Text style={styles.weather}>Scatterd</Text>

@@ -10,9 +10,9 @@ const NewsCard = (props) => {
     urlToImage: imageUrl,
     title,
     publishedAt,
+    source,
     onPress = () => {},
   } = props;
-
   return (
     <Pressable style={styles.cardContainer} onPress={onPress}>
       <View style={styles.card}>
@@ -23,6 +23,7 @@ const NewsCard = (props) => {
           <Text numberOfLines={3} style={styles.title}>
             {title}
           </Text>
+          <Text style={styles.published}>{source.name}</Text>
           <Text style={styles.published}>{getFormatedDate(publishedAt)}</Text>
         </View>
       </View>
@@ -51,7 +52,6 @@ const styles = StyleSheet.create({
   published: {
     fontSize: 12,
     marginTop: 7,
-    textAlign: "right",
     color: colors.primary,
   },
 });

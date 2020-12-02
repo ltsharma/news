@@ -1,32 +1,39 @@
-import React from "react";
-import { StyleSheet, FlatList, View } from "react-native";
-import useNewsController from "../Controllers/useNews";
-import ListEmpty from "./Components/ListEmpty";
-import NewsCard from "./Components/NewsCard";
+import React, { useCallback } from "react";
+import { StyleSheet, View, Dimensions, Pressable, Text } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { TabView, SceneMap } from "react-native-tab-view";
+import { colors } from "../Config/theme";
+import NewsList from "./Components/NewsList";
+import TabBar from "./Components/TabBar";
 
 const News = () => {
-  const news = useNewsController();
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: "movies", title: "Movies" },
+    { key: "fashion", title: "Fashion" },
+    { key: "models", title: "Models" },
+    { key: "locals", title: "Locals" },
+    { key: "sports", title: "Sports" },
+  ]);
+  const initialLayout = { width: Dimensions.get("window").width };
+
+  const scenemap = useCallback(
+    () =>
+      routes?.reduce((scenes, item) => {
+        return { ...scenes, [item.key]: NewsList };
+      }, {}),
+    [routes]
+  );
+  const renderScene = SceneMap(scenemap());
+
   return (
     <View style={styles.container}>
-      <FlatList
-        data={news.data}
-        keyExtractor={(item, index) => `${item.publishedAt}-${index}`}
-        renderItem={({ index, item }) => (
-          <NewsCard
-            {...item}
-            onPress={() => news.onPress(item, index)}
-            index={index}
-          />
-        )}
-        ListEmptyComponent={() => (
-          <ListEmpty
-            name="News"
-            loading={news.loading && news.data.length == 0}
-          />
-        )}
-        numColumns={2}
-        contentContainerStyle={styles.listContainer}
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={renderScene}
+        initialLayout={initialLayout}
+        onIndexChange={setIndex}
+        renderTabBar={(props) => <TabBar {...props} />}
       />
     </View>
   );
@@ -36,5 +43,4 @@ export default News;
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  listContainer: { padding: 7, paddingBottom: 30, flexGrow: 1 },
 });
