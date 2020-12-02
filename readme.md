@@ -10,3 +10,5 @@
   - View - React Screens - `src/Views`
 - used `eact-native-tab-view` for tabs.
 - used `react-navigation-shared-element` for image transition.
+
+Expo App link : https://expo.io/@ltsharma/projects/news
