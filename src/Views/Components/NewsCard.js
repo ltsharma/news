@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGray,
     ...cardShadow,
   },
-  image: { height: 150, resizeMode: "cover" },
+  image: { height: 150, resizeMode: "cover", backgroundColor: colors.gray },
   content: {
     padding: 7,
     paddingHorizontal: 10,
