@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { View, Text } from "react-native";
 import useBookmarkController from "./useBookmarks";
 
 const useDetails = (params) => {
@@ -17,10 +16,8 @@ const useDetails = (params) => {
     changeBookmark(params, bookmarked);
   };
 
-  const onSharePress = () => {};
   return {
     onBookmarkPress,
-    onSharePress,
     bookmarked,
   };
 };

@@ -18,6 +18,7 @@ const NewsTheme = {
 };
 
 const App = () => {
+  // Initialize database for bookmarks
   Database("NewsApp.db");
   useEffect(() => {
     createTable("bookmarks", {

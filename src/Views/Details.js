@@ -1,17 +1,16 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect } from "react";
 import {
   View,
   Text,
   Image,
   Pressable,
-  Alert,
   StyleSheet,
   ScrollView,
   Linking,
 } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
-import { EvilIcons, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../Config/theme";
 import { getFormatedDate } from "../Config/utils";
 import useDetails from "../Controllers/useDetails";
@@ -19,7 +18,7 @@ import useDetails from "../Controllers/useDetails";
 const Details = () => {
   const { params } = useRoute();
   const { setOptions } = useNavigation();
-  const { onBookmarkPress, onSharePress, bookmarked } = useDetails(params);
+  const { onBookmarkPress, bookmarked } = useDetails(params);
 
   useLayoutEffect(() => {
     setOptions({
